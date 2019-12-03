@@ -1,0 +1,90 @@
+{extend name='common/_container'} {block name="content"}
+<form class="layui-form" action="">
+    <div class="ibox float-e-margins">
+        <input type="hidden" name='m_id' id='m_id' value="{$info.m_id}" />
+        <div class="ibox-content layui-form">
+            <div class="form-horizontal" id="CodeInfoForm">
+                <div class="row">
+                    <div class="col-sm-12">
+                        <!-- form start -->
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label">名称：</label>
+                            <div class="col-sm-9">
+                                <input type="text" id="name" name="name" class="form-control" placeholder="请输入名称">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label">售价：</label>
+                            <div class="col-sm-9">
+                                <input type="text" id="price" name="price" class="form-control" placeholder="请输入售价">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label">原价：</label>
+                            <div class="col-sm-9">
+                                <input type="text" id="amount" name="amount" class="form-control" placeholder="请输入原价">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label">图片：</label>
+                            <div class="col-sm-6">
+                                <input type="text" id="headimgurl" name="headimgurl" {:hook( 'view_big_pic'
+                                    ,[ 'type'=>2])}
+                                class="form-control"
+                                placeholder="请输入头像">
+                            </div>
+                            <div class="col-sm-2" style="position:relative; right:30px;">
+                                <span id="headimgurl_upload"></span>
+                            </div>
+                        </div>
+
+                        <script src="__PUBLIC__/static/js/plugins/shengshiqu/distpicker.data.js">
+                        </script>
+                        <script src="__PUBLIC__/static/js/plugins/shengshiqu/distpicker.js"></script>
+                        <script src="__PUBLIC__/static/js/plugins/shengshiqu/main.js"></script>
+
+                        <link href="__PUBLIC__/static/js/plugins/colorpicker/bootstrap-colorpicker.css"
+                            rel="stylesheet">
+                        <script src="__PUBLIC__/static/js/plugins/colorpicker/bootstrap-colorpicker.js">
+                        </script>
+
+
+                        <!-- form end -->
+                    </div>
+                </div>
+                <div class="hr-line-dashed"></div>
+                <div class="row btn-group-m-t">
+                    <div class="col-sm-9 col-sm-offset-1">
+                        <button type="button" class="btn btn-primary" onclick="CodeInfoDlg.add()" id="ensure">
+                            <i class="fa fa-check"></i>&nbsp;确认提交
+                        </button>
+                        <button type="button" class="btn btn-danger" onclick="CodeInfoDlg.close()" id="cancel">
+                            <i class="fa fa-eraser"></i>&nbsp;取消
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
+<script src="__PUBLIC__/static/js/admin/Goods.js?t=<?php echo rand(1000, 9999) ?>" charset="utf-8">
+</script>
+<script src="__PUBLIC__/static/js/upload.js" charset="utf-8"></script>
+<script src="__PUBLIC__/static/js/plugins/layui/layui.js?t=1498856285724" charset="utf-8"></script>
+<script>
+layui.config({
+    dir: '__PUBLIC__/static/js/plugins/layui/'
+});
+layui.use(['layer', 'form'], function() {
+    window.layer = layui.layer;
+    window.form = layui.form();
+});
+layui.use('element', function() {
+    var element = layui.element();
+    element.on('tab(test)', function(elem) {});
+});
+uploader('headimgurl_upload', 'headimgurl', 'image', false, '', '{:url("admin/Upload/uploadImages")}');
+</script>
+
+
+{/block}

@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>身高预测结果</title>
+	<meta name="viewport" content="width=device-width,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+    <script src="http://g.tbcdn.cn/mtb/lib-flexible/0.3.2/??flexible_css.js,flexible.js"></script>
+    <link rel="stylesheet" href="__PUBLIC__/static/js/admin/css/style.css">
+    <link rel="stylesheet" href="__PUBLIC__/static/js/admin/css/iconfont.css">
+    <script src="__PUBLIC__/static/js/admin/js/vue.min.js"></script>
+    <script src="__PUBLIC__/static/js/admin/js/jquery-3.4.1.min.js"></script>
+    <script src="__PUBLIC__/static/js/admin/js/echarts.min43.js"></script>
+</head>
+<body>
+	<div class="tbody height_body">
+		<div class="tbody_height2">
+			<div class="height1">
+				<div class="left">
+					 <div class="p1">170 <span>cm</span></div>
+					 <div class="p2">预测成年身高</div>
+				</div>
+				<div class="right">
+					 <div class="p1">
+					 	<span class="iconfont icon-xiajiantou1"></span><span class="num">15</span>cm
+					 </div>
+					 <div class="p2">
+					 	<img src="img/ico6.png" alt="">
+					 	低于遗传身高
+					 </div>
+				</div>
+			</div>
+			<div class="height2">
+				<div class="item left">
+					<div class="top">遗传身高</div>
+					<div class="middle">185 <span>cm</span></div>
+					<div class="bottom">根据父母身高测算出</div>
+				</div>
+				<div class="item right">
+					<div class="top">
+					    <div class="text">当前身高</div>
+					    <div class="label"><span class="iconfont icon-xiajiantou1"></span> <span class="lt">偏矮</span></div>
+					</div>
+					<div class="middle">164 <span>cm</span></div>
+					<div class="bottom">与同龄人相比偏矮2cm</div>
+				</div>
+			</div>
+			<div class="echarts1">
+                <div class="title">
+                	<div class="left">
+                		<img src="img/ec1.png" alt="">
+                        <div class="text">平均身高</div>
+                	</div>
+                	<div class="right r1">
+                		<div class="ico"></div>
+                		<div class="text">平均身高</div>
+                	</div>
+                	<div class="right r2">
+                		<div class="ico"></div>
+                		<div class="text">我的身高</div>
+                	</div>
+                </div>
+				<div id="main1"></div>
+				<script>
+				   var myChart = echarts.init(document.getElementById('main1'));
+				   option = {
+				    color: ['#f3f3f3','#65B9FF'],
+				    legend: {},
+				    tooltip: {},
+				    dataset: {
+				        source: [
+				            // ['product', '平均身高', '我的身高'],
+				            ['6岁',80,85],
+				            ['7岁',90,95],
+				            ['8岁',100,105],
+				            ['9岁',110,115],
+				            ['10岁',120,125],
+				            ['11岁',130,135],
+				            ['12岁',140,145],
+				            ['13岁',150,160],
+				            ['14岁',170,175],
+				            ['15岁',175,178],
+				        ]
+				    },
+					    xAxis: {	
+					      type: 'category',
+					       axisTick: {
+					            show: false
+					        },
+					      axisLabel:{
+                          interval:'0',
+					      },
+					      axisLine:{
+					        lineStyle:{
+					          color:'#969696',
+					        },
+					    
+					      },
+
+					    },
+					    yAxis: {
+					    	splitLine :{
+					      	show: true,
+							lineStyle:{
+								color:'#E5E5E5',
+                                type:'dashed'
+                             }
+
+						  },
+					       axisTick: {
+					            show: false
+					        },
+					      axisLine:{
+					        lineStyle:{
+					          color:'#969696',
+					        }
+					      }
+					    },
+					    series: [
+					        {type: 'bar'},
+					        {type: 'bar'},
+					    ],
+					   
+					      };
+					    myChart.setOption(option);
+				  </script>
+			</div>
+			<div class="echarts1">
+                <div class="title">
+                	<div class="left">
+                		<img src="img/ec2.png" alt="">
+                        <div class="text">标准生长曲线</div>
+                	</div>
+                	<div class="right r1">
+                		<div class="ico"></div>
+                		<div class="text">标准生长线</div>
+                	</div>
+                	<div class="right r2">
+                		<div class="ico"></div>
+                		<div class="text">我的生长线</div>
+                	</div>
+                </div>
+				<div id="main2"></div>
+				<script>
+				   var myChart = echarts.init(document.getElementById('main2'));
+				   option = {
+				    color: ['#f3f3f3','#65B9FF'],
+				    legend: {
+				    },
+				    tooltip: {
+				    	trigger: 'axis'
+				    },
+				    dataset: {
+				        source: [
+				            ['6岁',80,85],
+				            ['7岁',90,95],
+				            ['8岁',100,105],
+				            ['9岁',110,115],
+				            ['10岁',120,125],
+				            ['11岁',130,135],
+				            ['12岁',140,145],
+				            ['13岁',150,160],
+				            ['14岁',170,175],
+				            ['15岁',175,178],
+				        ]
+				    },
+					    xAxis: {
+						 axisTick: {
+					            show: false
+					        },
+					      type: 'category',
+					      axisLabel:{
+                          interval:'0',
+					      },
+					      axisLine:{
+					        lineStyle:{
+					          color:'#969696',
+					        },
+					      },
+					    },
+					    yAxis: {
+					       splitLine :{
+					      	show: true,
+							lineStyle:{
+								color:'#E5E5E5',
+                                type:'dashed'
+                             }
+
+						  },
+						   axisLine:{
+					        lineStyle:{
+					          color:'#969696',
+					        }
+					      },
+					       axisTick: {
+				            show: false,
+				         },
+					    },
+					    series: [
+					        {
+					         type: 'line', 
+					         smooth:true,
+					         symbol:'none',
+					         areaStyle: {
+					            normal: {
+					                color: '#f3f3f3',
+					            }
+					        }
+					     },
+					        {
+					          type: 'line',
+					          smooth:true,
+					          symbol:'none',
+                         },
+					    ],
+					      };
+					    myChart.setOption(option);
+				  </script>
+			</div>
+			<div class="echarts1">
+                <div class="title">
+                	<div class="left">
+                		<img src="img/ec1.png" alt="">
+                        <div class="text">遗传生长身高</div>
+                	</div>
+                	<div class="right r1">
+                		<div class="ico"></div>
+                		<div class="text">遗传身高</div>
+                	</div>
+                	<div class="right r2">
+                		<div class="ico"></div>
+                		<div class="text">我的身高</div>
+                	</div>
+                </div>
+				<div id="main3"></div>
+				<script>
+				   var myChart = echarts.init(document.getElementById('main3'));
+				   option = {
+				    color: ['#f3f3f3','#65B9FF'],
+				    legend: {},
+				    tooltip: {},
+				    dataset: {
+				        source: [
+				            // ['product', '平均身高', '我的身高'],
+				            ['6岁',60,85],
+				            ['7岁',90,95],
+				            ['8岁',100,105],
+				            ['9岁',110,115],
+				            ['10岁',120,125],
+				            ['11岁',130,135],
+				            ['12岁',140,145],
+				            ['13岁',150,160],
+				            ['14岁',170,175],
+				            ['15岁',175,178],
+				        ]
+				    },
+					    xAxis: {	
+					      type: 'category',
+					       axisTick: {
+					            show: false
+					        },
+					      axisLabel:{
+                          interval:'0',
+					      },
+					      axisLine:{
+					        lineStyle:{
+					          color:'#969696',
+					        },
+					    
+					      },
+
+					    },
+					    yAxis: {
+					    	splitLine :{
+					      	show: true,
+							lineStyle:{
+								color:'#E5E5E5',
+                                type:'dashed'
+                             }
+
+						  },
+					       axisTick: {
+					            show: false
+					        },
+					      axisLine:{
+					        lineStyle:{
+					          color:'#969696',
+					        }
+					      }
+					    },
+					    series: [
+					        {type: 'bar'},
+					        {type: 'bar'},
+					    ],
+					   
+					      };
+					    myChart.setOption(option);
+				  </script>
+			</div>
+			<div class="echarts1">
+                <div class="title">
+                	<div class="left">
+                		<img src="img/ec3.png" alt="">
+                        <div class="text">体重成长图</div>
+                	</div>
+                	<div class="right r2">
+                		<div class="ico"></div>
+                		<div class="text">体重成长图</div>
+                	</div>
+                </div>
+				<div id="main4"></div>
+				<script>
+				   var myChart = echarts.init(document.getElementById('main4'));
+				   option = {
+				    color: ['#65B9FF'],
+				    legend: {
+				    },
+				    tooltip: {
+				    	trigger: 'axis'
+				    },
+				    dataset: {
+				        source: [
+				            ['6岁',30],
+				            ['7岁',35],
+				            ['8岁',40],
+				            ['9岁',45],
+				            ['10岁',50],
+				            ['11岁',55],
+				            ['12岁',60],
+				            ['13岁',65],
+				            ['14岁',70],
+				            ['15岁',75],
+				        ]
+				    },
+					    xAxis: {
+						 axisTick: {
+					            show: false
+					        },
+					      type: 'category',
+					      axisLabel:{
+                          interval:'0',
+					      },
+					      axisLine:{
+					        lineStyle:{
+					          color:'#969696',
+					        },
+					      },
+					    },
+					    yAxis: {
+					       splitLine :{
+					      	show: true,
+							lineStyle:{
+								color:'#E5E5E5',
+                                type:'dashed'
+                             }
+
+						  },
+						   axisLine:{
+					        lineStyle:{
+					          color:'#969696',
+					        }
+					      },
+					       axisTick: {
+				            show: false,
+				         },
+					    },
+					    series: [
+					        {
+					         type: 'line', 
+					         smooth:true,
+					         symbol:'none',
+					     },
+					        {
+					          type: 'line',
+					          smooth:true,
+					          symbol:'none',
+                         },
+					    ],
+					      };
+					    myChart.setOption(option);
+				  </script>
+			</div>
+			<div :class="style1" @click="c1">
+				<div class="title">
+					<div class="text">标准身高生长数据<span>(仅供参考)</span></div>
+					<div :class="style2"></div>
+				</div>
+				<div class="list">
+					<div class="item">
+						<div class="it">年龄</div>
+						<div class="it">身高cm</div>
+						<div class="it">体重kg</div>
+					</div>
+					<div class="item">
+						<div class="it">6</div>
+						<div class="it">98</div>
+						<div class="it">25</div>
+					</div>
+					<div class="item">
+						<div class="it">6</div>
+						<div class="it">98</div>
+						<div class="it">25</div>
+					</div>
+					<div class="item">
+						<div class="it">6</div>
+						<div class="it">98</div>
+						<div class="it">25</div>
+					</div>
+					<div class="item">
+						<div class="it">6</div>
+						<div class="it">98</div>
+						<div class="it">25</div>
+					</div>
+					<div class="item">
+						<div class="it">6</div>
+						<div class="it">98</div>
+						<div class="it">25</div>
+					</div>
+				</div>
+			</div>
+			<div class="btn">
+				<span class="iconfont icon-fenxiang"></span>
+				<span class="text">分享</span>
+			</div>
+		</div>
+	</div>
+</body>
+<script>
+     var num = 0;  
+	new Vue({
+		el:'body',
+		data:{
+			style1:'height3',
+			style2:'iconfont icon-xiajiantou'
+		},
+		methods:{
+			c1(){
+                num ++;
+              if(num%2==1){
+              	this.style1= 'height3 h3';
+              	this.style2= 'iconfont icon-shangjiantou';
+              }else{
+                this.style1= 'height3';
+              	this.style2= 'iconfont icon-xiajiantou';
+              }
+			}
+		}
+	})
+</script>
+</html>
